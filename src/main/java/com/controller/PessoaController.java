@@ -17,7 +17,7 @@ import com.entity.Pessoa;
 import com.service.PessoaService;
 @Controller
 @Component
-@Scope("view")
+@Scope("view") 
 public class PessoaController implements Serializable{
 
 	private static final long serialVersionUID = 1L;

@@ -36,7 +36,7 @@ public class UserSession {
 	public String novo(){
 		RequestContext.getCurrentInstance().reset(":form:panel");  
 		init();
-		return "";
+		return ""; 
 	}
 	
 	public String index(){
