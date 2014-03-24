@@ -22,7 +22,7 @@
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center">
-			<h:form id="cadastroPessoas" rendered="true" >
+			<h:form id="form">
 				
 				<p:breadCrumb>
 					<p:menuitem value="" />
@@ -32,16 +32,15 @@
 
 				<p:fieldset legend="Cadastro Pessoas" styleClass="fildSet">
 
-					<h:panelGrid columns="2" cellpadding="5" id="painelPessoas"
-						rendered="true">
+					<h:panelGrid columns="2" cellpadding="5" id="panel">
 						<h:outputText value="Nome: " />
 						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" />
 						<h:outputText value="Sobrenome: " />
-						<p:inputText value="#{pessoaController.pessoa.sobrenome}" label="Sobrenome" placeholder="Sobrenome"/>
+						<p:inputText id="txtSobrenome" value="#{pessoaController.pessoa.sobrenome}" label="Sobrenome" placeholder="Sobrenome"/>
 						<h:outputText value="E-mail: " />
-						<p:inputText value="#{pessoaController.pessoa.email}" label="E-mail" placeholder="nome@gmail.com.br" />
+						<p:inputText id="txtEmail" value="#{pessoaController.pessoa.email}" label="E-mail" placeholder="nome@gmail.com.br" />
 						<h:outputText value="Idade: " />
-						<p:inputText value="#{pessoaController.pessoa.idade}" label="Idade" placeholder="21"/>
+						<p:inputText id="txtIdade" value="#{pessoaController.pessoa.idade}" label="Idade" placeholder="21"/>
 						
 					</h:panelGrid>
 
@@ -49,11 +48,12 @@
 
 				<p:toolbar style="margin-top:345px">
 					<p:toolbarGroup align="left">
-						<p:commandButton value="Novo" update=":formDataTable:dataTable" 
-							icon="ui-icon-document" action="#{pessoaController.novo}"/>
+						<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-document"  action="#{pessoaController.novo}">
+						  <p:ajax update="panel" resetValues="true" />  
+						</p:commandButton>
 						<p:separator />
-						<p:commandButton id="salvar" value="#{pessoaController.pessoaSelecionada == null ? 'Salvar': 'Atualizar'}" icon="ui-icon-disk"
-							action="#{pessoaController.salvar}" update=":formDataTable:dataTable" />
+						<p:commandButton id="btnSalvar" value="#{pessoaController.pessoaSelecionada == null ? 'Salvar': 'Atualizar'}" icon="ui-icon-disk"
+							action="#{pessoaController.salvar}" update=":form:panel :formDataTable:dataTable " />
 						<p:separator />
                         <p:commandButton id="btnExcluir"  value="Excluir" disabled="#{pessoaController.pessoaSelecionada == null ? true : false}"
 							icon="ui-icon-trash" oncomplete="confirmation.show()"  immediate="true"> 
@@ -68,7 +68,7 @@
 					<p:commandButton id="confirm" value="Sim"
 						oncomplete="confirmation.hide()"
 						actionListener="#{pessoaController.deletar}"
-						update=":formDataTable:dataTable"  />
+						update=":formDataTable:dataTable :form:panel"  />
 					<p:commandButton id="decline" value="Não"
 						onclick="confirmation.hide()" type="button" />
 
@@ -89,11 +89,9 @@
 						emptyMessage="Registro não encontrado, Favor verificar !">
 	
 						<p:ajax event="rowSelect"
-							listener="#{pessoaController.onRowSelect}"
-							update=":cadastroPessoas" />
+							listener="#{pessoaController.onRowSelect}" update=":form" />
 						<p:ajax event="rowUnselect"
-							listener="#{pessoaController.onRowUnselect}"
-							update=":cadastroPessoas" />
+							listener="#{pessoaController.onRowUnselect}" update=":form"/>
 	
 						<f:facet name="footer">
 							<h:commandLink>  

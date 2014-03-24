@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,8 @@ public class UserSession {
 		this.usuarioSelecionado = null;
 	}
 
-	public String novo() {
+	public String novo(){
+		RequestContext.getCurrentInstance().reset(":form:panel");  
 		init();
 		return "";
 	}

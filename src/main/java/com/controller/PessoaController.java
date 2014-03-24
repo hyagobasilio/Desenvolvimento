@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class PessoaController implements Serializable{
 	}
 	
 	public String novo(){
+		RequestContext.getCurrentInstance().reset(":form:panel");  
 		init();
 		return "";
 	}
@@ -59,7 +61,7 @@ public class PessoaController implements Serializable{
 	}
  
 	public void onRowUnselect(UnselectEvent event) {
-		
+		this.pessoaSelecionada = null;
 	}
 
 	public Pessoa getPessoaSelecionada() {

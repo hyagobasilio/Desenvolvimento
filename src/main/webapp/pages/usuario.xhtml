@@ -22,7 +22,7 @@
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center">
-			<h:form id="cadastroUsuario" rendered="true">
+			<h:form id="form">
 
 				<p:breadCrumb>
 					<p:menuitem value="" />
@@ -32,24 +32,25 @@
 
 				<p:fieldset legend="Cadastro Usuário" styleClass="fildSet">
 
-					<h:panelGrid columns="2" cellpadding="5" id="painelUsuario"	rendered="true">
+					<h:panelGrid columns="2" cellpadding="5" id="panel">
 						<h:outputText value="Nome: " />
-						<p:inputText value="#{userSession.user.nomeUsuario}" label="Usuário"/>
+						<p:inputText id="txtUsuario" value="#{userSession.user.nomeUsuario}" label="Usuário"/>
 						<h:outputText value="Usuário: " />
-						<p:inputText value="#{userSession.user.username}" label="Usuário"/>
+						<p:inputText id="txtUsername" value="#{userSession.user.username}" label="Usuário"/>
 						<h:outputText value="Senha: " />
-						<p:inputText value="#{userSession.user.password}" label="Senha" type="password" />
+						<p:inputText id="txtPassword" value="#{userSession.user.password}" label="Senha" type="password" />
 					</h:panelGrid>
 
 				</p:fieldset>
 
 				<p:toolbar styleClass="barraTolbar">
 					<p:toolbarGroup align="left">
-						<p:commandButton value="Novo" update=":formDataTable:dataTable"
-							icon="ui-icon-document" action="#{userSession.novo}" />
+						<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-document"  action="#{userSession.novo}">
+						  <p:ajax update="panel" resetValues="true" />  
+						</p:commandButton>
 						<p:separator />
 						<p:commandButton value="#{userSession.usuarioSelecionado == null ? 'Salvar': 'Atualizar'}" icon="ui-icon-disk"
-							action="#{userSession.salvar}" update=":formDataTable:dataTable" />
+							action="#{userSession.salvar}" update=":formDataTable:dataTable :form:panel" />
 						<p:separator />
                         <p:commandButton id="btnExcluir" value="Excluir" disabled="#{userSession.usuarioSelecionado == null ? true : false}"
 							icon="ui-icon-trash"  oncomplete="confirmation.show()"  immediate="true"/>
@@ -62,7 +63,7 @@
 					<p:separator />
 					<p:commandButton id="confirm" value="Sim"
 						oncomplete="confirmation.hide()"
-						actionListener="#{userSession.deletar}" update=":formDataTable:dataTable" ajax="false" />
+						actionListener="#{userSession.deletar}" update=":formDataTable:dataTable :form:panel" ajax="false" />
 					<p:commandButton id="decline" value="Não"
 						onclick="confirmation.hide()" type="button" />
 
@@ -83,10 +84,10 @@
 		
 							<p:ajax event="rowSelect"
 								listener="#{userSession.onRowSelect}"
-								update=":cadastroUsuario" />
+								update=":form" />
 							<p:ajax event="rowUnselect"
 								listener="#{userSession.onRowUnselect}"
-								update=":cadastroUsuario" />
+								update=":form" />
 		
 							<f:facet name="footer">
 								<h:commandLink>  
