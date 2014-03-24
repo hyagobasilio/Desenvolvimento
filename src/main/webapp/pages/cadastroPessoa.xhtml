@@ -53,7 +53,7 @@
 						</p:commandButton>
 						<p:separator />
 						<p:commandButton id="btnSalvar" value="#{pessoaController.pessoaSelecionada == null ? 'Salvar': 'Atualizar'}" icon="ui-icon-disk"
-							action="#{pessoaController.salvar}" update=":form:panel :formDataTable:dataTable " />
+							action="#{pessoaController.salvar}" update=":form :formDataTable:dataTable " />
 						<p:separator />
                         <p:commandButton id="btnExcluir"  value="Excluir" disabled="#{pessoaController.pessoaSelecionada == null ? true : false}"
 							icon="ui-icon-trash" oncomplete="confirmation.show()"  immediate="true"> 

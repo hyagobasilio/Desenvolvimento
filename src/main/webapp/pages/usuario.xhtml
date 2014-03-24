@@ -50,7 +50,7 @@
 						</p:commandButton>
 						<p:separator />
 						<p:commandButton value="#{userSession.usuarioSelecionado == null ? 'Salvar': 'Atualizar'}" icon="ui-icon-disk"
-							action="#{userSession.salvar}" update=":formDataTable:dataTable :form:panel" />
+							action="#{userSession.salvar}" update=":formDataTable:dataTable :form" />
 						<p:separator />
                         <p:commandButton id="btnExcluir" value="Excluir" disabled="#{userSession.usuarioSelecionado == null ? true : false}"
 							icon="ui-icon-trash"  oncomplete="confirmation.show()"  immediate="true"/>
