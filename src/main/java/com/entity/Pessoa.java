@@ -61,7 +61,7 @@ public class Pessoa implements Serializable{
         this.email = email;
     }
  
-    @Column(name="sobrenome_pessoa")
+    @Column(name="pessoa_sobrenome")
     public String getSobrenome() {
     	return sobrenome;
     }
