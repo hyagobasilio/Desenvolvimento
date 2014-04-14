@@ -16,6 +16,7 @@
 		<class>com.entity.Horario</class>
 		<class>com.entity.HorarioTarde</class>
 		<class>com.entity.HorarioNoite</class>
+		<class>com.entity.Teste</class>
 
 		<properties>
 		
