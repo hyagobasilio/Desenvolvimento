@@ -40,15 +40,16 @@ public class GeradorClasse {
 	private static String INDEX = "cadastroPessoa.xhtml";
 	private static String NOVO_INDEX = "teste.xhtml";
 	
-	/*private static String CAMINHO = "//Users//JadersonMorais//Documents//workspace//JSF//Desenvolvimento//src//main//java//com";*/
-	private static String CAMINHO = "D:\\Estudos\\Desenvolvimento\\src\\main\\java\\com";
-	private static String CAMINHO_INDEX = "D:\\Estudos\\Desenvolvimento\\src\\main\\webapp";
+	private static String CAMINHO = "//Users//JadersonMorais//Documents//workspace//Desenvolvimento//src//main//java//com";
+	private static String CAMINHO_INDEX = "//Users//JadersonMorais//Documents//workspace//Desenvolvimento//src//main//webapp";
+	//private static String CAMINHO = "D:\\Estudos\\Desenvolvimento\\src\\main\\java\\com";
+	//private static String CAMINHO_INDEX = "D:\\Estudos\\Desenvolvimento\\src\\main\\webapp";
 	
-	private static String SUFIXO_CONTROLLER = "\\controller\\";
-	private static String SUFIXO_INTERFACES = "\\interfaces\\";
-	private static String SUFIXO_SERVICE = "\\service\\";
-	private static String SUFIXO_DAO = "\\dao\\";
-	private static String SUFIXO_INDEX = "\\pages\\";
+	private static String SUFIXO_CONTROLLER = "//controller//";
+	private static String SUFIXO_INTERFACES = "//interfaces//";
+	private static String SUFIXO_SERVICE = "//service//";
+	private static String SUFIXO_DAO = "//dao//";
+	private static String SUFIXO_INDEX = "//pages//";
 	
 	public static void controllerAserCopiado(String caminhoNovo) throws IOException{
 		
