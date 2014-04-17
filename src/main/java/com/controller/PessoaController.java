@@ -61,7 +61,7 @@ public class PessoaController implements Serializable{
 	}
  
 	public void onRowUnselect(UnselectEvent event) {
-		this.pessoaSelecionada = null;
+		novo();
 	}
 
 	public Pessoa getPessoaSelecionada() {

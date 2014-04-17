@@ -3,27 +3,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:sec="http://www.springframework.org/security/facelets/tags"
-	xmlns:ui="http://java.sun.com/jsf/facelets" 
-	>
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<title>Login - Spring Security</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="css/principal.css" />
+	<style type="text/css">
+		body {
+			font-family: "ars-maquette-web", "Myriad Pro", "Gill Sans",
+				"Lucida Sans", Verdana, Geneva, sans-serif;
+			font-size: 11px;
+			background: #CCC;
+			margin: 30.2%;
+			margin-top: 18.2%;
+			margin-left: 20.2%;
+		}
+		}
+	</style>
 </h:head>
 <h:body>
-	<p:layout fullPage="true">
-		<p:layoutUnit position="north" size="54">
-			<ui:include src="includes/top.xhtml" />
-		</p:layoutUnit>
-
-		<p:layoutUnit position="west" size="210" header="Menu Principal" resizable="true" closable="false" collapsible="true">
-			<ui:include src="includes/menu.xhtml"/>
-		</p:layoutUnit>
-
-		<p:layoutUnit position="center">
-  			<h:graphicImage url="css/imagens/logo.png" height="150" width="250" style="margin-left:450px; margin-top:200px"/> 
-		</p:layoutUnit>
-	</p:layout>
+	<h:form>
+		<p:growl id="growl" autoUpdate="true" life="4500" />
+		<p:panelGrid columns="2">
+			<f:facet name="header">  
+ 				<h:graphicImage url="pages/css/imagens/logo.png" height="30" width="70" style="margin-left:20px; margin-top:3px;"/> 
+		    </f:facet>
+			<h:outputText value="Username: " />
+			<p:inputText value="#{authenticator.username}" />
+			<h:outputText value="Password: " />
+			<p:inputText value="#{authenticator.password}" type="password" />
+			<f:facet name="footer">
+				<p:commandButton value="Entrar" icon="ui-icon-check" action="#{authenticator.login}" />
+				<p:commandButton value="Limpar" icon="ui-icon-trash" type="reset" />
+			</f:facet>
+		</p:panelGrid>
+	</h:form>
 </h:body>
 </html>
