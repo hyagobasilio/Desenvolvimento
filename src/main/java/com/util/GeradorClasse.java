@@ -11,37 +11,39 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
+import javax.swing.JOptionPane;
+
 
 public class GeradorClasse {
 
 	private static BufferedReader br;
 	
 	private static String DAO = "PessoaDAO.java";
-	private static String NOVO_DAO = "TesteDAO.java";
+	private static String NOVO_DAO = JOptionPane.showInputDialog("Digite o nome da classe DAO:");
 	
 	private static String CONTROLLER= "PessoaController.java";
-	private static String NOVO_CONTROLLER = "TesteController.java";
+	private static String NOVO_CONTROLLER = JOptionPane.showInputDialog("Digite o nome da classe Controller:");
 	
 	private static String ENTIDADE = "Pessoa";
-	private static String NOVO_ENTIDADE = "Teste";
+	private static String NOVO_ENTIDADE = JOptionPane.showInputDialog("Digite o nome da Entidade:");
 
 	private static String PRE_SUFIXO = "pessoa";
-	private static String SUFIXO_ENTIDADE = "teste";
+	private static String SUFIXO_ENTIDADE = NOVO_ENTIDADE.substring(0,1).toLowerCase() + NOVO_ENTIDADE.substring(1);
 	
 	private static String INTERFACES = "IPessoaDAO.java";
-	private static String NOVO_INTERFACES = "ITesteDAO.java";
+	private static String NOVO_INTERFACES = JOptionPane.showInputDialog("Digite o nome da Interface DAO:");
 	
 	private static String INTERFACES_SERVICE = "IPessoaService.java";
-	private static String NOVO_INTERFACE_SERVICE = "ITesteService.java";
+	private static String NOVO_INTERFACE_SERVICE = JOptionPane.showInputDialog("Digite o nome da Interface Service:");
 	
 	private static String SERVICE = "PessoaService.java";
-	private static String NOVO_SERVICE = "TesteService.java";
+	private static String NOVO_SERVICE = JOptionPane.showInputDialog("Digite o nome da classe Service:");
 	
 	private static String INDEX = "cadastroPessoa.xhtml";
-	private static String NOVO_INDEX = "teste.xhtml";
+	private static String NOVO_INDEX = JOptionPane.showInputDialog("Digite o nome do XHTML:");
 	
-	private static String CAMINHO = "//Users//JadersonMorais//Documents//workspace//Desenvolvimento//src//main//java//com";
-	private static String CAMINHO_INDEX = "//Users//JadersonMorais//Documents//workspace//Desenvolvimento//src//main//webapp";
+	private static String CAMINHO = "//Users//JadersonMorais//Projetos//Desenvolvimento//src//main//java//com";
+	private static String CAMINHO_INDEX = "//Users//JadersonMorais//Projetos//Desenvolvimento//src//main//webapp";
 	//private static String CAMINHO = "D:\\Estudos\\Desenvolvimento\\src\\main\\java\\com";
 	//private static String CAMINHO_INDEX = "D:\\Estudos\\Desenvolvimento\\src\\main\\webapp";
 	
@@ -55,7 +57,7 @@ public class GeradorClasse {
 		
 		File arquivo = new File(CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);
 		if(arquivo.exists()){
-			System.out.println("Diretório já existe: " + CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);
+			JOptionPane.showMessageDialog(null,"Diretório já existe: " + CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);
 		}else{
 			
 			InputStream is = new FileInputStream(CAMINHO + SUFIXO_CONTROLLER + CONTROLLER);
@@ -83,7 +85,7 @@ public class GeradorClasse {
 			BufferedWriter bw = new BufferedWriter(osw);
 			
 			bw.write(sb.toString());
-			System.out.println("Diretório Criado: " + CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);
+			JOptionPane.showMessageDialog(null,"Diretório Criado: " + CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);
 			
 			bw.close();
 		}
@@ -95,7 +97,7 @@ public class GeradorClasse {
 		
 		File arquivo = new File(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
 		if(arquivo.exists()){
-			System.out.println("Diretório já existe: " + CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
+			JOptionPane.showMessageDialog(null,"Diretório já existe: " + CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
 		}else{
 			
 			InputStream is = new FileInputStream(CAMINHO + SUFIXO_INTERFACES + INTERFACES_SERVICE);
@@ -123,7 +125,7 @@ public class GeradorClasse {
 			BufferedWriter bw = new BufferedWriter(osw);
 			
 			bw.write(sb.toString());
-			System.out.println("Diretório Criado: " + CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
+			JOptionPane.showMessageDialog(null,"Diretório Criado: " + CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
 			
 			bw.close();
 		}
@@ -135,7 +137,7 @@ public class GeradorClasse {
 		
 		File arquivo = new File(CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE);
 		if(arquivo.exists()){
-			System.out.println("Diretório já existe: " + CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE);
+			JOptionPane.showMessageDialog(null,"Diretório já existe: " + CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE);
 		}else{
 			
 			InputStream is = new FileInputStream(CAMINHO + SUFIXO_SERVICE + SERVICE);
@@ -162,7 +164,7 @@ public class GeradorClasse {
 			BufferedWriter bw = new BufferedWriter(osw);
 			
 			bw.write(sb.toString());
-			System.out.println("Diretório Criado: " + CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE);
+			JOptionPane.showMessageDialog(null,"Diretório Criado: " + CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE);
 			
 			bw.close();
 		}
@@ -174,7 +176,7 @@ public class GeradorClasse {
 		
 		File arquivo = new File(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
 		if(arquivo.exists()){
-			System.out.println("Diretório já existe: " + CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
+			JOptionPane.showMessageDialog(null,"Diretório já existe: " + CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
 		}else{
 			
 			InputStream is = new FileInputStream(CAMINHO + SUFIXO_INTERFACES + INTERFACES);
@@ -202,7 +204,7 @@ public class GeradorClasse {
 			BufferedWriter bw = new BufferedWriter(osw);
 			
 			bw.write(sb.toString());
-			System.out.println("Diretório Criado: " + CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
+			JOptionPane.showMessageDialog(null,"Diretório Criado: " + CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
 			
 			bw.close();
 		}
@@ -214,7 +216,7 @@ public class GeradorClasse {
 		
 		File arquivo = new File(CAMINHO + SUFIXO_DAO + NOVO_DAO);
 		if(arquivo.exists()){
-			System.out.println("Diretório já existe: " + CAMINHO_INDEX + SUFIXO_DAO + NOVO_DAO);
+			JOptionPane.showMessageDialog(null,"Diretório já existe: " + CAMINHO_INDEX + SUFIXO_DAO + NOVO_DAO);
 		}else{
 			
 			InputStream is = new FileInputStream(CAMINHO + SUFIXO_DAO + DAO);
@@ -243,7 +245,7 @@ public class GeradorClasse {
 			BufferedWriter bw = new BufferedWriter(osw);
 			
 			bw.write(sb.toString());
-			System.out.println("Diretório Criado: " + CAMINHO_INDEX + SUFIXO_DAO + NOVO_DAO);
+			JOptionPane.showMessageDialog(null,"Diretório Criado: " + CAMINHO_INDEX + SUFIXO_DAO + NOVO_DAO);
 			
 			bw.close();
 		}
@@ -255,7 +257,7 @@ public class GeradorClasse {
 		
 		File arquivo = new File(caminhoNovo);
 		if(arquivo.exists()){
-			System.out.println("Diretório já existe: " + CAMINHO_INDEX + SUFIXO_INDEX + NOVO_INDEX);
+			JOptionPane.showMessageDialog(null,"Diretório já existe: " + CAMINHO_INDEX + SUFIXO_INDEX + NOVO_INDEX);
 		}else{
 			
 			InputStream is = new FileInputStream(CAMINHO_INDEX + SUFIXO_INDEX + INDEX);
@@ -285,7 +287,7 @@ public class GeradorClasse {
 			
 			bw.write(sb.toString());
 			
-			System.out.println("Diretório Criado: " + CAMINHO_INDEX + SUFIXO_INDEX + NOVO_INDEX);
+			JOptionPane.showMessageDialog(null, "Diretório Criado: " + CAMINHO_INDEX + SUFIXO_INDEX + NOVO_INDEX);
 			bw.close();
 			
 		}
@@ -297,10 +299,10 @@ public class GeradorClasse {
 		  File arquivo = new File(caminho);
 		  if(arquivo.exists()){
 			if(arquivo.delete()){
-				System.out.println("Diretório apagado: " + caminho);
+				JOptionPane.showMessageDialog(null,"Diretório apagado: " + caminho);
 				}
 			}else{
-				System.out.println("Diretório não existe: " + caminho);
+				JOptionPane.showMessageDialog(null,"Diretório não existe: " + caminho);
 		  }
 	}
 	
@@ -309,25 +311,31 @@ public class GeradorClasse {
 	
 	public static void main(String[] args) throws Exception {
 		
-		/* 	GERADOR DE CRUD	     
-		controllerAserCopiado(CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);
-		interfaceServiceAserCopiado(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
-		serviceAserCopiado(CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE);
-		interfaceAserCopiado(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
-		daoAserCopiado(CAMINHO + SUFIXO_DAO + NOVO_DAO);
-		indexAserCopiado(CAMINHO_INDEX + SUFIXO_INDEX + NOVO_INDEX);      */	
 		
-		 
-		/*  APAGAR OS ARQUIVOS COPIADOS         */
-		apagarPasta(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
-		apagarPasta(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
-		apagarPasta(CAMINHO + SUFIXO_DAO + NOVO_DAO);
-		apagarPasta(CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE); 
-		apagarPasta(CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);   
-		apagarPasta(CAMINHO_INDEX + SUFIXO_INDEX + NOVO_INDEX );          
-		
-			
-				
+		for (int opcao = 0; opcao != 3;) {
+            opcao = Integer.parseInt(JOptionPane.showInputDialog("1 - Gerar classe Crud\n2 - Apagar classe Crud\n3 - Sair"));
+            if (opcao == 1) {
+            	/* 	GERADOR DE CRUD	     */
+            	controllerAserCopiado(CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);
+            	interfaceServiceAserCopiado(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
+            	serviceAserCopiado(CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE);
+            	interfaceAserCopiado(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
+            	daoAserCopiado(CAMINHO + SUFIXO_DAO + NOVO_DAO);
+            	indexAserCopiado(CAMINHO_INDEX + SUFIXO_INDEX + NOVO_INDEX);      	
+                
+            }
+ 
+            if (opcao == 2) {
+            	/*  APAGAR OS ARQUIVOS COPIADOS  */       
+            	apagarPasta(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACE_SERVICE);
+            	apagarPasta(CAMINHO + SUFIXO_INTERFACES + NOVO_INTERFACES);
+            	apagarPasta(CAMINHO + SUFIXO_DAO + NOVO_DAO);
+            	apagarPasta(CAMINHO + SUFIXO_SERVICE + NOVO_SERVICE); 
+            	apagarPasta(CAMINHO + SUFIXO_CONTROLLER + NOVO_CONTROLLER);   
+            	apagarPasta(CAMINHO_INDEX + SUFIXO_INDEX + NOVO_INDEX );          
+                
+            }
+		}				
 	}
 } 
 	
