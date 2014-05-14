@@ -33,10 +33,9 @@ public class UserSession {
 		this.usuarioSelecionado = null;
 	}
 
-	public String novo(){
-		RequestContext.getCurrentInstance().reset(":form:panel");  
+	public void novo(){
 		init();
-		return ""; 
+		RequestContext.getCurrentInstance().reset(":form:panel");  
 	}
 	
 	public String index(){

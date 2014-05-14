@@ -45,9 +45,7 @@
 
 				<p:toolbar styleClass="barraTolbar">
 					<p:toolbarGroup align="left">
-						<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-document"  action="#{userSession.novo}">
-						  <p:ajax update="panel" resetValues="true" />  
-						</p:commandButton>
+						<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-document"  action="#{userSession.novo}"  update=":form:panel" ajax="false" />
 						<p:separator />
 						<p:commandButton value="#{userSession.usuarioSelecionado == null ? 'Salvar': 'Atualizar'}" icon="ui-icon-disk"
 							action="#{userSession.salvar}" update=":formDataTable:dataTable :form" />

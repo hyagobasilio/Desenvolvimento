@@ -36,10 +36,9 @@ public class PessoaController implements Serializable{
 		this.pessoaSelecionada = null;
 	}
 	
-	public String novo(){
-		RequestContext.getCurrentInstance().reset(":form:panel");  
+	public void novo(){
 		init();
-		return "";
+		RequestContext.getCurrentInstance().reset(":form:panel");  
 	}
 	
 
