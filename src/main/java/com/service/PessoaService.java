@@ -23,7 +23,7 @@ public class PessoaService  implements IPessoaService {
 	@Autowired PessoaDAO pessoaDAO;
 	@PersistenceContext EntityManager entityManager;
 
-	
+
 	@Override
 	public void salvar(Pessoa pessoa) throws IllegalArgumentException {
 		if(pessoa.getId() == null){

@@ -34,13 +34,13 @@
 
 					<h:panelGrid columns="2" cellpadding="5" id="panel">
 						<h:outputText value="Nome: " />
-						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" />
+						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" converter="ConverterEmptyToNull"/>
 						<h:outputText value="Sobrenome: " />
-						<p:inputText id="txtSobrenome" value="#{pessoaController.pessoa.sobrenome}" label="Sobrenome" placeholder="Sobrenome"/>
+						<p:inputText id="txtSobrenome" value="#{pessoaController.pessoa.sobrenome}" label="Sobrenome" placeholder="Sobrenome" converter="ConverterEmptyToNull"/>
 						<h:outputText value="E-mail: " />
-						<p:inputText id="txtEmail" value="#{pessoaController.pessoa.email}" label="E-mail" placeholder="nome@gmail.com.br" />
+						<p:inputText id="txtEmail" value="#{pessoaController.pessoa.email}" label="E-mail" placeholder="nome@gmail.com.br" converter="ConverterEmptyToNull" />
 						<h:outputText value="Idade: " />
-						<p:inputText id="txtIdade" value="#{pessoaController.pessoa.idade}" label="Idade" placeholder="21"/>
+						<p:inputText id="txtIdade" value="#{pessoaController.pessoa.idade}" label="Idade" placeholder="21" converter="ConverterEmptyToNull"/>
 						
 					</h:panelGrid>
 

@@ -49,7 +49,7 @@ public class PessoaController implements Serializable{
 	
 	public void deletar() {
 		pessoaService.deletar(pessoaSelecionada);
-		novo();
+		init();
 	}
 	
 	public void onRowSelect(SelectEvent event) {
