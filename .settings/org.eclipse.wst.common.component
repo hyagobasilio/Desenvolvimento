@@ -6,7 +6,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <property name="java-output-path" value="/Spring/target/classes"/>
-        <property name="component.exclusion.patterns" value="WEB-INF/lib/javaee-web-api*.jar"/>
         <property name="context-root" value="Spring"/>
+        <property name="component.exclusion.patterns"/>
     </wb-module>
 </project-modules>
