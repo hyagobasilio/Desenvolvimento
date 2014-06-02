@@ -9,8 +9,6 @@ public interface IDAO<E> {
 	E atualizar(E entidade, boolean validaDataBloqueio);
 	void excluir(E entidade);
 	void excluirLista(Collection<E> entities);
-	void bloquear(E entidade);
-	void desbloquear(E entidade);
 	void flush();
 	void clear();
 	void refresh(E entidade);

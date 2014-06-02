@@ -5,10 +5,13 @@ body {
 	background-color: #8B8989;
 }
 
-.barraTolbar {
-	margin-top: 260px
+.barraBotao {
+	width: 1130px;
 }
 
+.bootom{
+	bottom: 100px;
+}
 .fildSet {
 	margin-top: 30px;
 	margin-left: 15px;

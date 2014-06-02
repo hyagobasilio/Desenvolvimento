@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Controller;
 
 import com.entity.Pessoa;
 import com.service.PessoaService;
+import com.util.LancaMenssagem;
+import com.util.VerificadorUtil;
 @Controller
 @Component
 @Scope("view") 
@@ -25,6 +28,7 @@ public class PessoaController implements Serializable{
 	private Pessoa pessoa;
 	@Autowired
 	private PessoaService pessoaService;
+	@Resource LancaMenssagem lancaMenssagem;
 	private List<Pessoa> listaPessoa;
 	private Pessoa pessoaSelecionada;
 
@@ -43,8 +47,12 @@ public class PessoaController implements Serializable{
 	
 
 	public void salvar() {
-		pessoaService.salvar(pessoa);
-		novo();
+		if (VerificadorUtil.estaNulo(pessoa)){
+			lancaMenssagem.lancarInformacao("Campos Nulos");
+		}else{
+			pessoaService.salvar(pessoa);
+			novo();
+		}
 	}
 	
 	public void deletar() {

@@ -24,15 +24,43 @@
 		<p:layoutUnit position="center">
 			<h:form id="form">
 				
-				<p:breadCrumb>
-					<p:menuitem value="" />
-					<p:menuitem value="Pessoas" />
-					<p:menuitem value="Cadastro" />
-				</p:breadCrumb>
+					<h:panelGrid id="barraBotao">
+						<p:toolbar styleClass="barraBotao">
+							<p:toolbarGroup align="left">
+								<p:commandButton id="btnNovo" value="Novo"
+									icon="ui-icon-document" action="#{pessoaController.novo}"
+									update=":form:panel" ajax="false" />
+								<p:separator />
+								<p:commandButton id="btnSalvar"
+									value="#{pessoaController.pessoaSelecionada == null ? 'Salvar': 'Atualizar'}"
+									icon="ui-icon-disk" action="#{pessoaController.salvar}"
+									update=":form :formDataTable:dataTable " />
+								<p:separator />
+								<p:commandButton id="btnExcluir" value="Excluir"
+									disabled="#{pessoaController.pessoaSelecionada == null ? true : false}"
+									icon="ui-icon-trash" oncomplete="confirmation.show()"
+									immediate="true">
+								</p:commandButton>
+							</p:toolbarGroup>
+						</p:toolbar>
 
+						<p:dialog id="Excluir" header="Excluir" widgetVar="confirmation" >
+							<h:outputText
+								value="Você gostaria de Excluir o #{pessoaController.pessoa.nome}?" />
+							<p:separator />
+							<p:commandButton id="confirm" value="Sim"
+								oncomplete="confirmation.hide()"
+								actionListener="#{pessoaController.deletar}"
+								update=":formDataTable:dataTable :form:panel"  />
+							<p:commandButton id="decline" value="Não"
+								onclick="confirmation.hide()" type="button" />
+		
+						</p:dialog>
+					</h:panelGrid>
+				
 				<p:fieldset legend="Cadastro Pessoas" styleClass="fildSet">
 
-					<h:panelGrid columns="2" cellpadding="5" id="panel">
+					<h:panelGrid columns="2" cellpadding="5" id="panel" styleClass="bootom">
 						<h:outputText value="Nome: " />
 						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" converter="ConverterEmptyToNull"/>
 						<h:outputText value="Sobrenome: " />
@@ -45,32 +73,6 @@
 					</h:panelGrid>
 
 				</p:fieldset>
-
-				<p:toolbar styleClass="barraTolbar">
-					<p:toolbarGroup align="left">
-						<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-document"  action="#{pessoaController.novo}"  update=":form:panel" ajax="false" />
-						<p:separator />
-						<p:commandButton id="btnSalvar" value="#{pessoaController.pessoaSelecionada == null ? 'Salvar': 'Atualizar'}" icon="ui-icon-disk"
-							action="#{pessoaController.salvar}" update=":form :formDataTable:dataTable " />
-						<p:separator />
-                        <p:commandButton id="btnExcluir"  value="Excluir" disabled="#{pessoaController.pessoaSelecionada == null ? true : false}"
-							icon="ui-icon-trash" oncomplete="confirmation.show()"  immediate="true"> 
-						</p:commandButton>
-					</p:toolbarGroup>
-				</p:toolbar>
-
-				<p:dialog id="Excluir" header="Excluir" widgetVar="confirmation" >
-					<h:outputText
-						value="Você gostaria de Excluir o #{pessoaController.pessoa.nome}?" />
-					<p:separator />
-					<p:commandButton id="confirm" value="Sim"
-						oncomplete="confirmation.hide()"
-						actionListener="#{pessoaController.deletar}"
-						update=":formDataTable:dataTable :form:panel"  />
-					<p:commandButton id="decline" value="Não"
-						onclick="confirmation.hide()" type="button" />
-
-				</p:dialog>
 			</h:form>
 
 		</p:layoutUnit>
@@ -84,6 +86,7 @@
 						rowKey="#{pessoas.id}"
 						selection="#{pessoaController.pessoaSelecionada}"
 						selectionMode="single"
+						rowStyleClass="#{empty linha or linha mod 2 ne 0 ? 'even-row' : 'odd-row'}"
 						emptyMessage="Registro não encontrado, Favor verificar !">
 	
 						<p:ajax event="rowSelect"
