@@ -29,7 +29,7 @@
 							<p:toolbarGroup align="left">
 								<p:commandButton id="btnNovo" value="Novo"
 									icon="ui-icon-document" action="#{pessoaController.novo}"
-									update=":form:panel" ajax="false" />
+									update=":form:panel" ajax="false"/>
 								<p:separator />
 								<p:commandButton id="btnSalvar"
 									value="#{pessoaController.pessoaSelecionada == null ? 'Salvar': 'Atualizar'}"
@@ -62,13 +62,13 @@
 
 					<h:panelGrid columns="2" cellpadding="5" id="panel" styleClass="bootom">
 						<h:outputText value="Nome: " />
-						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" converter="ConverterEmptyToNull"/>
+						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" />
 						<h:outputText value="Sobrenome: " />
-						<p:inputText id="txtSobrenome" value="#{pessoaController.pessoa.sobrenome}" label="Sobrenome" placeholder="Sobrenome" converter="ConverterEmptyToNull"/>
+						<p:inputText id="txtSobrenome" value="#{pessoaController.pessoa.sobrenome}" label="Sobrenome" placeholder="Sobrenome" />
 						<h:outputText value="E-mail: " />
-						<p:inputText id="txtEmail" value="#{pessoaController.pessoa.email}" label="E-mail" placeholder="nome@gmail.com.br" converter="ConverterEmptyToNull" />
+						<p:inputText id="txtEmail" value="#{pessoaController.pessoa.email}" label="E-mail" placeholder="nome@gmail.com.br"  />
 						<h:outputText value="Idade: " />
-						<p:inputText id="txtIdade" value="#{pessoaController.pessoa.idade}" label="Idade" placeholder="21" converter="ConverterEmptyToNull"/>
+						<p:inputText id="txtIdade" value="#{pessoaController.pessoa.idade}" label="Idade" placeholder="21"/>
 						
 					</h:panelGrid>
 

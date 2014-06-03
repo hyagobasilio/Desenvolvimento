@@ -18,6 +18,7 @@ import com.entity.Pessoa;
 import com.service.PessoaService;
 import com.util.LancaMenssagem;
 import com.util.VerificadorUtil;
+
 @Controller
 @Component
 @Scope("view") 
@@ -48,7 +49,7 @@ public class PessoaController implements Serializable{
 
 	public void salvar() {
 		if (VerificadorUtil.estaNulo(pessoa)){
-			lancaMenssagem.lancarInformacao("Campos Nulos");
+			lancaMenssagem.lancarMensagemCampoNulos("");
 		}else{
 			pessoaService.salvar(pessoa);
 			novo();

@@ -5,6 +5,7 @@ import static com.util.ConstantesUtilWeb.MENSAGEM_AVISO;
 import static com.util.ConstantesUtilWeb.MENSAGEM_ERRO;
 import static com.util.ConstantesUtilWeb.MENSAGEM_ERRO_FATAL;
 import static com.util.ConstantesUtilWeb.MENSAGEM_SUCESSO;
+import static com.util.ConstantesUtilWeb.MENSAGEM_CAMPOS_NULOS;
 
 import java.io.IOException;
 
@@ -53,6 +54,14 @@ public class LancaMenssagem {
 		getContext().addMessage(
 				null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, MENSAGEM_AVISO,
+						mensagem));
+		
+	}
+	
+	public void lancarMensagemCampoNulos(String mensagem) {
+		getContext().addMessage(
+				null,
+				new FacesMessage(FacesMessage.SEVERITY_WARN, MENSAGEM_CAMPOS_NULOS,
 						mensagem));
 	}
 

@@ -14,15 +14,15 @@ import org.springframework.stereotype.Controller;
 
 import com.entity.User;
 import com.service.LoginService;
+
 @Controller
 @Component
 @Scope("session")
 public class UserSession {
 
 	private User user;
+	@Autowired private LoginService loginService;
 	private List<User> listaUsuario;
-	@Autowired
-	private LoginService loginService;
 	private User usuarioSelecionado;
 
 

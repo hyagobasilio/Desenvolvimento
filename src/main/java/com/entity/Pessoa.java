@@ -34,6 +34,7 @@ public class Pessoa implements Serializable{
         this.id = id;
     }
  
+
     @Column(name = "nome_pessoa")
     public String getNome() {
         return nome;

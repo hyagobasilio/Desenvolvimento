@@ -12,6 +12,7 @@ public interface ConstantesUtilWeb {
 
 	String MENSAGEM_SUCESSO = "Parabéns! Você completou a tarefa com sucesso.";
 	String MENSAGEM_AVISO = "Aviso! Cuidado.";
+	String MENSAGEM_CAMPOS_NULOS = "Aviso! Existe Campos Vazios ou Nulos";
 	String MENSAGEM_ALERTA = "Alerta! Cuidado.";
 	String MENSAGEM_ERRO = "Erro! Cuidado.";
 	String MENSAGEM_ERRO_FATAL = "Cubram suas cabeças. O erro fatal!";
