@@ -23,27 +23,8 @@
 
 		<p:layoutUnit position="center">
 			<h:form id="form">
-
-				<p:breadCrumb>
-					<p:menuitem value="" />
-					<p:menuitem value="Pessoas" />
-					<p:menuitem value="Usuário" />
-				</p:breadCrumb>
-
-				<p:fieldset legend="Cadastro Usuário" styleClass="fildSet">
-
-					<h:panelGrid columns="2" cellpadding="5" id="panel">
-						<h:outputText value="Nome: " />
-						<p:inputText id="txtUsuario" value="#{userSession.user.nomeUsuario}" label="Usuário"/>
-						<h:outputText value="Usuário: " />
-						<p:inputText id="txtUsername" value="#{userSession.user.username}" label="Usuário"/>
-						<h:outputText value="Senha: " />
-						<p:inputText id="txtPassword" value="#{userSession.user.password}" label="Senha" type="password" />
-					</h:panelGrid>
-
-				</p:fieldset>
-
-				<p:toolbar styleClass="barraTolbar">
+			<h:panelGrid id="barraBotao" styleClass="barraBotao">
+				<p:toolbar styleClass="barraBotao">
 					<p:toolbarGroup align="left">
 						<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-document"  action="#{userSession.novo}"  update=":form:panel" ajax="false" />
 						<p:separator />
@@ -66,6 +47,19 @@
 						onclick="confirmation.hide()" type="button" />
 
 				</p:dialog>
+			   </h:panelGrid>
+			   <p:fieldset legend="Cadastro Usuário" styleClass="fildSet">
+
+					<h:panelGrid columns="2" cellpadding="5" id="panel">
+						<h:outputText value="Nome: " />
+						<p:inputText id="txtUsuario" value="#{userSession.user.nomeUsuario}" label="Usuário"/>
+						<h:outputText value="Usuário: " />
+						<p:inputText id="txtUsername" value="#{userSession.user.username}" label="Usuário"/>
+						<h:outputText value="Senha: " />
+						<p:inputText id="txtPassword" value="#{userSession.user.password}" label="Senha" type="password" />
+					</h:panelGrid>
+
+				</p:fieldset>
 			</h:form>
 		</p:layoutUnit> 
 		
