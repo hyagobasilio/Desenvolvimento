@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dao.PessoaDAO;
 import com.entity.Pessoa;
+import com.interfaces.IPessoaDAO;
 import com.interfaces.IPessoaService;
 import com.sun.faces.util.MessageFactory;
 import com.util.LancaMenssagem;
@@ -21,7 +21,7 @@ import com.util.LancaMenssagem;
 @Transactional
 public class PessoaService  implements IPessoaService {
 
-	@Autowired PessoaDAO pessoaDAO;
+	@Autowired IPessoaDAO pessoaDAO;
 	@Resource LancaMenssagem lancaMenssagem;
 	@PersistenceContext EntityManager entityManager;
 

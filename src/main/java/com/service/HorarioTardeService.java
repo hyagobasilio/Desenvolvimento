@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dao.HorarioTardeDAO;
 import com.entity.HorarioTarde;
+import com.interfaces.IHorarioTardeDAO;
 import com.interfaces.IHorarioTardeService;
 import com.sun.faces.util.MessageFactory;
 @Service
@@ -19,7 +19,7 @@ public class HorarioTardeService implements IHorarioTardeService{
 
 
     @Autowired
-    private HorarioTardeDAO horarioTardeDAO;
+    private IHorarioTardeDAO horarioTardeDAO;
 	
 	@Override
 	public List<HorarioTarde> listaHorario(HorarioTarde entidade) {

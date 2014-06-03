@@ -14,10 +14,10 @@
 		<message-bundle>messages_core</message-bundle>
 	</application>
 
-<!--  	<converter>  
+  	<converter>  
     	<converter-id>ConverterEmptyToNull</converter-id>   
-    	<converter-class>com.util.ConverterEmptyToNull</converter-class>   
-	</converter>   -->
+    	<converter-class>com.util.EmptyToNullConverter</converter-class>   
+	</converter>   
 	
 	  <navigation-rule>
         <navigation-case>

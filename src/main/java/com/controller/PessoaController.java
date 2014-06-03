@@ -48,9 +48,10 @@ public class PessoaController implements Serializable{
 	
 
 	public void salvar() {
-		if (VerificadorUtil.estaNulo(pessoa)){
-			lancaMenssagem.lancarMensagemCampoNulos("");
-		}else{
+		if (VerificadorUtil.isEmptyOrNull(pessoa)) {
+			throw new IllegalArgumentException(
+					"Atenção, usuário ou senhas vazios!");
+		} else {
 			pessoaService.salvar(pessoa);
 			novo();
 		}

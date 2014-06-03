@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dao.UserDAO;
 import com.entity.User;
 import com.interfaces.ILoginService;
+import com.interfaces.IUserDAO;
 import com.sun.faces.util.MessageFactory;
 
 @Service
@@ -19,7 +19,7 @@ import com.sun.faces.util.MessageFactory;
 public class LoginService implements ILoginService {
 	
     @Autowired
-    private UserDAO dao;
+    private IUserDAO dao;
  
     @Override
     public User login(String username, String password)

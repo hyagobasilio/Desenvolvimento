@@ -5,6 +5,10 @@ import java.util.Collection;
 import org.apache.commons.lang.StringUtils;
 
 public class VerificadorUtil {
+	
+	   public static boolean isEmptyOrNull(Object s) {
+	        return s == null || s.equals("");
+	    }
 
 		public static Boolean isDiferente(String string1, String string2) {
 			return !StringUtils.equalsIgnoreCase(string1, string2);
