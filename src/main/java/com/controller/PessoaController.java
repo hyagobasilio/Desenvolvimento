@@ -48,12 +48,8 @@ public class PessoaController implements Serializable{
 	
 
 	public void salvar() {
-		if (VerificadorUtil.isEmptyOrNull(pessoa)) {
-			lancaMenssagem.lancarMensagemCampoNulos("");
-		} else {
 			pessoaService.salvar(pessoa);
 			novo();
-		}
 	}
 	
 	public void deletar() {

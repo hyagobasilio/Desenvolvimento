@@ -26,7 +26,7 @@
 			<h:panelGrid id="barraBotao" styleClass="barraBotao">
 				<p:toolbar styleClass="barraBotao">
 					<p:toolbarGroup align="left">
-						<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-document"  action="#{userSession.novo}"  update=":form:panel" ajax="false" />
+						<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-document"  action="#{userSession.novo}"  update=":form:panel" ajax="false" immediate="true"/>
 						<p:separator />
 						<p:commandButton value="#{userSession.usuarioSelecionado == null ? 'Salvar': 'Atualizar'}" icon="ui-icon-disk"
 							action="#{userSession.salvar}" update=":formDataTable:dataTable :form" />
@@ -52,11 +52,11 @@
 
 					<h:panelGrid columns="2" cellpadding="5" id="panel">
 						<h:outputText value="Nome: " />
-						<p:inputText id="txtUsuario" value="#{userSession.user.nomeUsuario}" label="Usuário"/>
+						<p:inputText id="txtUsuario" value="#{userSession.user.nomeUsuario}" label="Usuário" required="true" converter="EmptyToNullConverter"/>
 						<h:outputText value="Usuário: " />
-						<p:inputText id="txtUsername" value="#{userSession.user.username}" label="Usuário"/>
+						<p:inputText id="txtUsername" value="#{userSession.user.username}" label="Usuário" required="trues" converter="EmptyToNullConverter"/>
 						<h:outputText value="Senha: " />
-						<p:inputText id="txtPassword" value="#{userSession.user.password}" label="Senha" type="password" />
+						<p:inputText id="txtPassword" value="#{userSession.user.password}" label="Senha" type="password" required="trues" converter="EmptyToNullConverter"/>
 					</h:panelGrid>
 
 				</p:fieldset>
