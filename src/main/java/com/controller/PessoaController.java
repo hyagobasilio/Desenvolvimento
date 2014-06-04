@@ -49,8 +49,7 @@ public class PessoaController implements Serializable{
 
 	public void salvar() {
 		if (VerificadorUtil.isEmptyOrNull(pessoa)) {
-			throw new IllegalArgumentException(
-					"Atenção, usuário ou senhas vazios!");
+			lancaMenssagem.lancarMensagemCampoNulos("");
 		} else {
 			pessoaService.salvar(pessoa);
 			novo();
@@ -59,7 +58,7 @@ public class PessoaController implements Serializable{
 	
 	public void deletar() {
 		pessoaService.deletar(pessoaSelecionada);
-		init();
+		novo();
 	}
 	
 	public void onRowSelect(SelectEvent event) {

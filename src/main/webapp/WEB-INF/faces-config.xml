@@ -15,7 +15,7 @@
 	</application>
 
   	<converter>  
-    	<converter-id>ConverterEmptyToNull</converter-id>   
+    	<converter-id>EmptyToNullConverter</converter-id>   
     	<converter-class>com.util.EmptyToNullConverter</converter-class>   
 	</converter>   
 	

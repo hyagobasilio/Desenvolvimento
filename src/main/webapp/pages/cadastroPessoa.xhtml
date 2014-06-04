@@ -62,7 +62,7 @@
 
 					<h:panelGrid columns="2" cellpadding="5" id="panel" styleClass="bootom">
 						<h:outputText value="Nome: " />
-						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" />
+						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" converter="EmptyToNullConverter"/>
 						<h:outputText value="Sobrenome: " />
 						<p:inputText id="txtSobrenome" value="#{pessoaController.pessoa.sobrenome}" label="Sobrenome" placeholder="Sobrenome" />
 						<h:outputText value="E-mail: " />

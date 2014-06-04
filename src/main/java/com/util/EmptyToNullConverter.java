@@ -10,9 +10,9 @@ public class EmptyToNullConverter implements Converter {
     public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
         if (value == null || value.trim().length() == 0) {
             if (component instanceof EditableValueHolder) {
-                ((EditableValueHolder) component).setSubmittedValue("");
+                ((EditableValueHolder) component).setSubmittedValue(null);
             }
-            return "";
+            return null;
         }
         return value;
     }
