@@ -38,8 +38,7 @@
 								<p:separator />
 								<p:commandButton id="btnExcluir" value="Excluir"
 									disabled="#{pessoaController.pessoaSelecionada == null ? true : false}"
-									icon="ui-icon-trash" oncomplete="confirmation.show()"
-									immediate="false">
+									icon="ui-icon-trash" oncomplete="confirmation.show()" immediate="true">
 								</p:commandButton>
 							</p:toolbarGroup>
 						</p:toolbar>
@@ -51,7 +50,7 @@
 							<p:commandButton id="confirm" value="Sim"
 								oncomplete="confirmation.hide()"
 								actionListener="#{pessoaController.deletar}"
-								update=":formDataTable:dataTable :form:panel"  />
+								update=":formDataTable:dataTable :form:panel" immediate="true"/>
 							<p:commandButton id="decline" value="Não"
 								onclick="confirmation.hide()" type="button" />
 		
@@ -62,7 +61,7 @@
 
 					<h:panelGrid columns="2" cellpadding="5" id="panel" styleClass="bootom">
 						<h:outputText value="Nome: " />
-						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" required="true" converter="EmptyToNullConverter"/>
+						<p:inputText id="txtNome" value="#{pessoaController.pessoa.nome}" label="Nome" placeholder="Nome" required="false" converter="EmptyToNullConverter"/>
 						<h:outputText value="Sobrenome: " />
 						<p:inputText id="txtSobrenome" value="#{pessoaController.pessoa.sobrenome}" label="Sobrenome" placeholder="Sobrenome" required="true" converter="EmptyToNullConverter"/>
 						<h:outputText value="E-mail: " />

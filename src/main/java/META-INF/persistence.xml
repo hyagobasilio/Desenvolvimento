@@ -17,7 +17,6 @@
 		<class>com.entity.HorarioTarde</class>
 		<class>com.entity.HorarioNoite</class>
 		<class>com.entity.Empresa</class>
-		<class>com.entity.Teste</class>
 
 		<properties>
 		
