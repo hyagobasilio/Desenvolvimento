@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>Spring</groupId>
-	<artifactId>Spring</artifactId>
+	<groupId>Swift</groupId>
+	<artifactId>Swift</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -14,7 +14,7 @@
 	
 		
 	    <build>
-			 <finalName>Spring</finalName>
+			 <finalName>Swift</finalName>
 			 <plugins>
 			 	<plugin>
 					<groupId>org.mortbay.jetty</groupId>
@@ -110,6 +110,12 @@
 			<groupId>org.hibernate.common</groupId>
 			<artifactId>hibernate-commons-annotations</artifactId>
 			<version>4.0.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.1.0.Final</version>
 		</dependency>
 
 		<dependency>
