@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import com.entity.Pessoa;
-import com.service.PessoaService;
+import com.interfaces.IPessoaService;
 import com.util.LancaMenssagem;
 
 @Controller
@@ -26,8 +26,7 @@ public class PessoaController implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Pessoa pessoa;
-	@Autowired
-	private PessoaService pessoaService;
+	@Autowired	private IPessoaService pessoaService;
 	@Resource LancaMenssagem lancaMenssagem;
 	private List<Pessoa> listaPessoa;
 	private Pessoa pessoaSelecionada;

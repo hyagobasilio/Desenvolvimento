@@ -25,13 +25,14 @@
 			<h:form id="cep" rendered="true">
 
 			<p:fieldset legend="Saida" styleClass="fildSet">
-					<h:panelGrid columns="2" cellpadding="5" id="painelPessoas"
-						rendered="true">
+					<h:panelGrid columns="2" cellpadding="5" id="painelPessoas"	rendered="true">
+					
 						<h:outputText value="CEP: " />
-						<p:inputText value="#{buscaCEP.wc.cep}" label="CEP" required="false" />
+						<p:inputText id="idCep" label="CEP" value="#{buscaCEPController.cep}" />
+						<h:outputText value="#{webserviceCepVO.cidade}"/>
+						
 					</h:panelGrid>
-					<p:commandButton value="Buscar"  action="#{buscaCep.getEndereco}" icon="ui-icon-document" ajax="false"
-					 onclick="this.form.target='_blank'" style="margin-top: 20px;"/>
+					<p:commandButton value="Buscar"  actionListener="#{buscaCEPController.buscaCEP(buscaCEPController.cep)}" icon="ui-icon-document" ajax="false" style="margin-top: 20px;"/>
 			</p:fieldset>
 			</h:form>
 			

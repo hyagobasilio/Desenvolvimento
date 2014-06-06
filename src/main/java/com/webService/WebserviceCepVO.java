@@ -2,32 +2,14 @@ package com.webService;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "")
-public class WebserviceCep {
+@XmlRootElement(name = "webservicecep")
+public class WebserviceCepVO {
 
-	private String resultado;
-	private String resultado_txt;
 	private String uf;
 	private String cidade;
 	private String bairro;
 	private String tipo_logradouro;
 	private String logradouro;
-
-	public String getResultado() {
-		return resultado;
-	}
-
-	public void setResultado(String resultado) {
-		this.resultado = resultado;
-	}
-
-	public String getResultado_txt() {
-		return resultado_txt;
-	}
-
-	public void setResultado_txt(String resultado_txt) {
-		this.resultado_txt = resultado_txt;
-	}
 
 	public String getUf() {
 		return uf;
@@ -68,5 +50,4 @@ public class WebserviceCep {
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
-
 }
