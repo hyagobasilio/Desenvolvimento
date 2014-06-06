@@ -17,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import com.entity.Pessoa;
 import com.service.PessoaService;
 import com.util.LancaMenssagem;
-import com.util.VerificadorUtil;
 
 @Controller
 @Component

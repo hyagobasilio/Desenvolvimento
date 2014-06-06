@@ -72,13 +72,31 @@
 		<param-value>bootstrap</param-value>
 	</context-param>
 	
-	<!-- WebService REST -->
+	<!-- WebService -->
+ 	<context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.servlet.mapping.prefix</param-name>
+        <param-value>/rest</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Resteasy</servlet-name>
+        <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resteasy</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+	
+	<!-- WebService REST 
 	<context-param>
-    	<param-name>resteasy.scan</param-name>
-    	<param-value>true</param-value>
-  	</context-param>
+		<param-name>resteasy.scan</param-name>
+		<param-value>true</param-value>
+	</context-param>
   	
-	<display-name>Swift</display-name> <!-- Como default o nome do meu projeto, esse nome irá aparecer na URL -->
+	<display-name>Swift</display-name> 
 		<servlet> 
 			<servlet-name>jersey-serlvet</servlet-name>
 			<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
@@ -86,6 +104,6 @@
 		<servlet-mapping>
 			<servlet-name>jersey-serlvet</servlet-name>
 			<url-pattern>/*</url-pattern>
-		</servlet-mapping>
+		</servlet-mapping> -->
 	
 </web-app>
