@@ -6,6 +6,7 @@ import static com.util.ConstantesUtilWeb.MENSAGEM_ERRO;
 import static com.util.ConstantesUtilWeb.MENSAGEM_ERRO_FATAL;
 import static com.util.ConstantesUtilWeb.MENSAGEM_SUCESSO;
 import static com.util.ConstantesUtilWeb.MENSAGEM_CAMPOS_NULOS;
+import static com.util.ConstantesUtilWeb.MENSAGEM_CEP_NAO_ENCONTRADO;
 
 import java.io.IOException;
 
@@ -64,6 +65,21 @@ public class LancaMenssagem {
 				new FacesMessage(FacesMessage.SEVERITY_WARN, MENSAGEM_CAMPOS_NULOS,
 						mensagem));
 	}
+	
+	public void lancarMensagemCEPNaoEncontrado(String mensagem) {
+		getContext().addMessage(
+				null,
+				new FacesMessage(FacesMessage.SEVERITY_WARN, MENSAGEM_CEP_NAO_ENCONTRADO,
+						mensagem));
+	}
+	
+	public void lancarMensagem(String mensagem) {
+		getContext().addMessage(
+				null,
+				new FacesMessage(FacesMessage.SEVERITY_WARN, mensagem,
+						""));
+	}
+	
 
 	public void lancarAlerta(String mensagem) {
 		getContext().addMessage(

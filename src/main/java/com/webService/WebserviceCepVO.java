@@ -10,6 +10,7 @@ public class WebserviceCepVO {
 	private String bairro;
 	private String tipo_logradouro;
 	private String logradouro;
+	private String resultado;
 
 	public String getUf() {
 		return uf;
@@ -35,6 +36,22 @@ public class WebserviceCepVO {
 		this.bairro = bairro;
 	}
 
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public String getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(String resultado) {
+		this.resultado = resultado;
+	}
+
 	public String getTipo_logradouro() {
 		return tipo_logradouro;
 	}
@@ -43,11 +60,4 @@ public class WebserviceCepVO {
 		this.tipo_logradouro = tipo_logradouro;
 	}
 
-	public String getLogradouro() {
-		return logradouro;
-	}
-
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
 }
