@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import com.webService.CalculaFrete;
-import com.webService.CalculcaFreteVO;
+import com.webService.CalculaFreteVO;
 
 @ManagedBean
 @Controller
@@ -22,15 +22,14 @@ public class CalcularFreteController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private CalculcaFreteVO calculcaFreteVO;
+	private CalculaFreteVO calculcaFreteVO;
 	@Autowired private CalculaFrete calculaFrete;
 	
 	public void calculaFrete() throws JAXBException, IOException{
-		calculcaFreteVO = calculaFrete.getPreco("", "", "41106", "71939360", "72151613", "1",
-				"1", "20", "5", "15", "0", "s", "0", "n", "xml");
+		calculcaFreteVO = calculaFrete.getPreco("", "", "41106", "71939360", "72151613", "1","1", "20", "5", "15", "0", "s", "0", "n", "xml");
 	}
 
-	public CalculcaFreteVO getCalculcaFreteVO() {
+	public CalculaFreteVO getCalculcaFreteVO() {
 		return calculcaFreteVO;
 	}
 

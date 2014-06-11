@@ -1,35 +1,31 @@
 package com.webService;
 
+import java.math.BigDecimal;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Servicos")
-public class CalculcaFreteVO {
+public class CalculaFreteVO {
 
-	String nCdEmpresa;
-	String sDsSenha;
-	String nCdServico;
-	String sCepOrigem;
-	String sCepDestino;
-	String nVlPeso;
-	String nCdFormato;
-	String nVlComprimento;
-	String nVlAltura;
-	String nVlLargura;
-	String nVlDiametro;
-	String sCdMaoPropria;
-	String nVlValorDeclarado;
-	String sCdAvisoRecebimento;
-	String StrRetorno;
-	String Valor;
-
-	public String getValor() {
-		return Valor;
+	private String nCdEmpresa;
+	private String sDsSenha;
+	private String nCdServico;
+	private String sCepOrigem;
+	private String sCepDestino;
+	private String nVlPeso;
+	private int nCdFormato;
+	private BigDecimal nVlComprimento;
+	private BigDecimal nVlAltura;
+	private BigDecimal nVlLargura;
+	private BigDecimal nVlDiametro;
+	private String sCdMaoPropria;
+	private BigDecimal nVlValorDeclarado;
+	private String sCdAvisoRecebimento;
+	
+	public CalculaFreteVO(){
+		
 	}
-
-	public void setValor(String valor) {
-		Valor = valor;
-	}
-
+	
 	public String getnCdEmpresa() {
 		return nCdEmpresa;
 	}
@@ -78,43 +74,43 @@ public class CalculcaFreteVO {
 		this.nVlPeso = nVlPeso;
 	}
 
-	public String getnCdFormato() {
+	public int getnCdFormato() {
 		return nCdFormato;
 	}
 
-	public void setnCdFormato(String nCdFormato) {
+	public void setnCdFormato(int nCdFormato) {
 		this.nCdFormato = nCdFormato;
 	}
 
-	public String getnVlComprimento() {
+	public BigDecimal getnVlComprimento() {
 		return nVlComprimento;
 	}
 
-	public void setnVlComprimento(String nVlComprimento) {
+	public void setnVlComprimento(BigDecimal nVlComprimento) {
 		this.nVlComprimento = nVlComprimento;
 	}
 
-	public String getnVlAltura() {
+	public BigDecimal getnVlAltura() {
 		return nVlAltura;
 	}
 
-	public void setnVlAltura(String nVlAltura) {
+	public void setnVlAltura(BigDecimal nVlAltura) {
 		this.nVlAltura = nVlAltura;
 	}
 
-	public String getnVlLargura() {
+	public BigDecimal getnVlLargura() {
 		return nVlLargura;
 	}
 
-	public void setnVlLargura(String nVlLargura) {
+	public void setnVlLargura(BigDecimal nVlLargura) {
 		this.nVlLargura = nVlLargura;
 	}
 
-	public String getnVlDiametro() {
+	public BigDecimal getnVlDiametro() {
 		return nVlDiametro;
 	}
 
-	public void setnVlDiametro(String nVlDiametro) {
+	public void setnVlDiametro(BigDecimal nVlDiametro) {
 		this.nVlDiametro = nVlDiametro;
 	}
 
@@ -126,11 +122,11 @@ public class CalculcaFreteVO {
 		this.sCdMaoPropria = sCdMaoPropria;
 	}
 
-	public String getnVlValorDeclarado() {
+	public BigDecimal getnVlValorDeclarado() {
 		return nVlValorDeclarado;
 	}
 
-	public void setnVlValorDeclarado(String nVlValorDeclarado) {
+	public void setnVlValorDeclarado(BigDecimal nVlValorDeclarado) {
 		this.nVlValorDeclarado = nVlValorDeclarado;
 	}
 
@@ -141,13 +137,4 @@ public class CalculcaFreteVO {
 	public void setsCdAvisoRecebimento(String sCdAvisoRecebimento) {
 		this.sCdAvisoRecebimento = sCdAvisoRecebimento;
 	}
-
-	public String getStrRetorno() {
-		return StrRetorno;
-	}
-
-	public void setStrRetorno(String strRetorno) {
-		StrRetorno = strRetorno;
-	}
-
 }
