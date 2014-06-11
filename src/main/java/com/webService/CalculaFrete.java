@@ -28,13 +28,13 @@ public class CalculaFrete {
 	@Resource
 	LancaMenssagem menssagem;
 
-	public CalculaFreteVO getPreco(String nCdEmpresa, String sDsSenha,
+	public CorreiosFreteVO getPreco(String nCdEmpresa, String sDsSenha,
 			String nCdServico, String sCepOrigem, String sCepDestino,
 			String nVlPeso, String nCdFormato, String nVlComprimento,
 			String nVlAltura, String nVlLargura, String nVlDiametro,
 			String sCdMaoPropria, String nVlValorDeclarado,
 			String sCdAvisoRecebimento, String strRetorno)
-			throws JAXBException, IOException {
+			throws JAXBException, IOException, ParserConfigurationException, SAXException {
 
 		String urls = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx";
 
@@ -69,26 +69,6 @@ public class CalculaFrete {
 		/* URL = http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?sCdAvisoRecebimento=n&nCdServico=41106&nVlComprimento=20&sCdMaoPropria=s&nCdEmpresa=&sCepOrigem=71939360&nVlAltura=5&sCepDestino=72151613&nVlValorDeclarado=0&sDsSenha=&nVlLargura=15&nVlDiametro=0&nVlPeso=1&StrRetorno=xml&nCdFormato=1*/
 		Client c = Client.create();
 		WebResource wr = c.resource(urls);
-		return populaVO(wr.get(CalculaFreteVO.class));
-
-	}
-
-	private CalculaFreteVO populaVO(CalculaFreteVO item) {
-		CalculaFreteVO vo = new CalculaFreteVO();
-		return vo;
-	}
-	
-	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-		
-		/*	Client c = Client.create();
-		WebResource wr = c
-				.resource("http://frete.w21studio.com/calFrete.xml?cep=74905660&cod=8697&peso=10&comprimento=60&largura=60&altura=5&servico=3");
-		FreteVO vo = wr.get(FreteVO.class);
-		System.out.println(vo.getValor_pac());  */
-		CorreiosFreteVO vo = new CorreiosFreteVO();
-		
-		Client c = Client.create();
-		WebResource wr = c.resource("http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?sCdAvisoRecebimento=n&nCdServico=41106&nVlComprimento=20&sCdMaoPropria=s&nCdEmpresa=&sCepOrigem=71939360&nVlAltura=5&sCepDestino=72151613&nVlValorDeclarado=0&sDsSenha=&nVlLargura=15&nVlDiametro=0&nVlPeso=1&StrRetorno=xml&nCdFormato=1");
 		String xmlString = wr.get(String.class);
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();     
 		DocumentBuilder db = dbf.newDocumentBuilder();     
@@ -99,20 +79,29 @@ public class CalculaFrete {
 /*		System.out.println("O elemento raiz é:" + raiz.getNodeName()); */
 		
 		NodeList list = raiz.getElementsByTagName("Servicos");
-		
-		NodeList valor = raiz.getElementsByTagName("Valor");
-		Node valorPac = valor.item(0).getFirstChild();
-		vo.setValor(valorPac.getNodeValue()); 
-		
-		NodeList prazo = raiz.getElementsByTagName("PrazoEntrega");
-		Node prazoEntrega = prazo.item(0).getFirstChild();
-		vo.setPrazoEntrega(prazoEntrega.getNodeValue()); 
-		
-		System.out.println("Valor PAC: " + vo.getValor());
-		System.out.println("Prazo de Entrega: " +  vo.getPrazoEntrega());
-		
-		
+		return criarCorreiosVO(raiz);
+
+	}
+
+	public  String obterValorElemento(Element elemento, String nomeElemento){
+		NodeList listaElemento = elemento.getElementsByTagName(nomeElemento);
+		if (listaElemento == null) {
+			return null;
+		}
+		Element noElemento = (Element) listaElemento.item(0);
+		if (noElemento == null) {
+			return null;
+		}
+		Node no = noElemento.getFirstChild();
+		return no.getNodeValue();
 	}
 		
+	
+	public  CorreiosFreteVO criarCorreiosVO(Element elemento) {
+		CorreiosFreteVO vo = new CorreiosFreteVO();
+		vo.setValor((obterValorElemento(elemento,"Valor")));
+		vo.setPrazoEntrega((obterValorElemento(elemento,"PrazoEntrega")));
+		return vo;
+	}
 
 }
